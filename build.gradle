@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'eclipse'
+    id 'org.springframework.boot' version '2.1.6.RELEASE'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.arnav'
+description = "Spring Boot Application test"
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+//using 'implementation' and 'testImplementation' instead of compile (it is deprecated)
+// you can use 'api' if you want these dependencies to be open to consumers library
+dependencies {
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    implementation 'org.springframework.boot:spring-boot-starter' //snakeyml is included
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    providedRuntime 'org.apache.tomcat.embed:tomcat-embed-jasper'// Need this to compile JSP
+    providedRuntime 'org.eclipse.jdt.core.compiler:ecj:4.6.1'// jasper's alternative
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat' // tomcat embedded container
+    implementation 'javax.servlet:jstl' // JSTL for JSP
+    implementation 'org.webjars:bootstrap:3.3.7' //optional, test for static contents, bootstrap CSS
+    implementation 'org.springframework.boot:spring-boot-starter-security' //make http secure
+    implementation 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.1.1.RELEASE' //make third party login (google/facebook)
+//    implementation 'mysql:mysql-connector-java' //mysql connector
+//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // JPA Data (We are going to use Repositories, Entities, Hibernate, etc...)
+//    implementation 'org.apache.camel:camel-core:3.0.0'
+}
+
+bootRun {
+    if (project.hasProperty('args')) {
+        args project.args.split(',')
+    }
+}
+
