@@ -24,7 +24,7 @@ security:
   oauth2:
     client:
       clientId: 929597430695-slih912nffioie494fk56a9ts4jtefc1.apps.googleusercontent.com
-      clientSecret: ioL1BdJluHQYG0Q19LA4bEhD
+      clientSecret: ENC(MngB3+fS320vojN6CFjH6q4wRrFKu7HqWmLetK+w6bdpGo7gtI/YRA==)
       accessTokenUri: https://www.googleapis.com/oauth2/v3/token
       userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
       tokenName: oauth_token
@@ -36,6 +36,12 @@ security:
       preferTokenInfo: false
 
 ---
+
+jasypt:
+  encryptor:
+    password: clientSecret
+    algorithm: PBEWithMD5AndDES
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
 
 #security:
 #  require-ssl: true

@@ -31,6 +31,7 @@ dependencies {
     implementation 'org.webjars:bootstrap:3.3.7' //optional, test for static contents, bootstrap CSS
     implementation 'org.springframework.boot:spring-boot-starter-security' //make http secure
     implementation 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.1.1.RELEASE' //make third party login (google/facebook)
+    implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.2' //encrypt application properties
 //    implementation 'mysql:mysql-connector-java' //mysql connector
 //    implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // JPA Data (We are going to use Repositories, Entities, Hibernate, etc...)
 //    implementation 'org.apache.camel:camel-core:3.0.0'
