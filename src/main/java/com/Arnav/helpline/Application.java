@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.security.Principal;
 
 @SpringBootApplication
-@Controller
-@ComponentScan
 public class Application {
 
     /*@Override
@@ -37,11 +35,7 @@ public class Application {
 
     //add the HTTP Endpoint to read the User Principal
     // from the Google after authenticating via Spring Boot
-    @GetMapping(value = "/user")
-    public String user(Model model, Principal principal, Helpline helpline) {
-        model.addAttribute("userDetails", ((OAuth2Authentication) principal).getUserAuthentication().getDetails());
-		return "home";
-    }
+
 
     /*@Bean
     public ApplicatonStartupRunner scheduleRunner() {

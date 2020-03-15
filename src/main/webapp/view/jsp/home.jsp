@@ -11,20 +11,18 @@
 
       <label for="helpline">Type anything regarding school bullying/sexual harassment/office/family related stress etc.:</label>
       <br>
-      <!--<textarea id="helpline" rows="8" cols="100">
-      </textarea>-->
+      <textarea id="helpline" rows="8" cols="100" form="helplineForm" name="textForm"></textarea>
 
-      <form action="#" th:action="@{/user}" th:object="${user}" method="post">
+      <form action="#" th:action="@{/user}" method="post" id="helplineForm">
           <p>
-              Name: <textarea id="helpline" rows="8" cols="100" th:field="*{message}"> </textarea>
-          </p>
-          <p>
-              <input type="submit" value="Submit"/> <input type="reset" value="Reset">
+              <input type="submit" class="button" value="Submit"/>
+              <input type="reset" value="Reset" class="button">
           </p>
       </form>
-
+      <a href="logout">
+        <button class="button">Logout</button>
+      </a>
       <script type="text/javascript">
-
 
             //window.onload = function(){
             //    var t = document.getElementsByTagName("textarea");

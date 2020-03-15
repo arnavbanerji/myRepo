@@ -8,6 +8,8 @@
    </head>
    <body>
       <h1 div class="hello-title">Hello ${userDetails.name}! Your Concern has been submitted</h1>
-
+        <a href="logout">
+          <button class="button">Logout</button>
+        </a>
    </body>
 </html>

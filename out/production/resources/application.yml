@@ -1,0 +1,47 @@
+server:
+  port: 8093
+
+spring:
+  mvc:
+    view:
+      prefix: /view/jsp/
+      suffix: .jsp
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    datasource:
+#      url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_example
+#      username: springuser
+#      password: ThePassword
+
+logging:
+  level:
+    org:
+      springframework:  TRACE
+    com:  TRACE
+
+security:
+  oauth2:
+    client:
+      clientId: 929597430695-slih912nffioie494fk56a9ts4jtefc1.apps.googleusercontent.com
+      clientSecret: ENC(MngB3+fS320vojN6CFjH6q4wRrFKu7HqWmLetK+w6bdpGo7gtI/YRA==)
+      accessTokenUri: https://www.googleapis.com/oauth2/v3/token
+      userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
+      tokenName: oauth_token
+      authenticationScheme: query
+      clientAuthenticationScheme: form
+      scope: profile email
+    resource:
+      userInfoUri: https://www.googleapis.com/userinfo/v2/me
+      preferTokenInfo: false
+
+---
+
+jasypt:
+  encryptor:
+    password: clientSecret
+    algorithm: PBEWithMD5AndDES
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
+
+#security:
+#  require-ssl: true
