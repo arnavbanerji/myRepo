@@ -4,7 +4,7 @@ server:
 spring:
   mvc:
     view:
-      prefix: /view/
+      prefix: /view/jsp/
       suffix: .jsp
 #  jpa:
 #    hibernate:
