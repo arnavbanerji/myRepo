@@ -1,18 +1,24 @@
 package com.Arnav.helpline;
 
+import com.Arnav.helpline.model.Helpline;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
 
 @SpringBootApplication
-@RestController
+@Controller
 @ComponentScan
 public class Application {
 
@@ -31,9 +37,10 @@ public class Application {
 
     //add the HTTP Endpoint to read the User Principal
     // from the Google after authenticating via Spring Boot
-    @RequestMapping(value = "/user")
-    public Principal user(Principal principal) {
-        return principal;
+    @GetMapping(value = "/user")
+    public String user(Model model, Principal principal, Helpline helpline) {
+        model.addAttribute("userDetails", ((OAuth2Authentication) principal).getUserAuthentication().getDetails());
+		return "home";
     }
 
     /*@Bean

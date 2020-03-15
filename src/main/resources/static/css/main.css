@@ -2,10 +2,30 @@ body {
     background-color: #99ffeb;
 }
 
+.bg-image {
+    /*background-image: url("/images/dial_phone.png")*/
+
+    /* Add the blur effect
+    /* Add the blur effect
+      filter: blur(8px);
+      -webkit-filter: blur(8px);
+
+      *//* Full height *//*
+      height: 100%;
+
+      *//* Center and scale the image nicely *//*
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;*/
+}
+
 .hello-title{
     color: orange;
     font-family: Helvetica;
     text-align: center;
+    border-style: solid;
+    background-color: #004d3d;
+    border-color: #004d3d;
 }
 
 .button {
